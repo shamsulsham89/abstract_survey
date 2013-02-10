@@ -1,0 +1,98 @@
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# you'll amass, the slower it'll run and the greater likelihood for issues).
+#
+# It's strongly recommended to check this file into your version control system.
+
+ActiveRecord::Schema.define(:version => 20130206173245) do
+
+  create_table "account_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "outlet_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rate_the_communication_skill_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rate_the_presentability_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "stock_availability_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "surveys", :force => true do |t|
+    t.string   "outlet_type_id"
+    t.integer  "time_spent_at_the_philips"
+    t.string   "visibility_of_philips"
+    t.string   "stock_availability_of_philips"
+    t.string   "promoter_of_philips"
+    t.string   "rate_the_presentability_of_the_philips"
+    t.string   "rate_the_communication_skill_of_the_philips"
+    t.integer  "time_spent_at_the_braun"
+    t.string   "visibility_of_the_braun"
+    t.string   "stock_availability_of_the_braun"
+    t.string   "promoter_of_braun"
+    t.string   "rate_the_presentability_of_braun"
+    t.string   "rate_the_communication_skill_of_the_braun"
+    t.integer  "user_id"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.integer  "account_type_id"
+    t.string   "auth_token"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.datetime "created_at",             :null => false
+    t.datetime "updated_at",             :null => false
+  end
+
+  create_table "visibility_types", :force => true do |t|
+    t.string   "name"
+    t.integer  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+end

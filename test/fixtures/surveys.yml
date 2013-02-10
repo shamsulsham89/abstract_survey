@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  outlet_type_id: MyString
+  time_spent_at_the_philips: 1
+  visibility_of_philips: 1
+  stock_availability_of_philips: 1
+  promoter_of_philips: 1
+  rate_the_presentability_of_the_philips: 1
+  rate_the_communication_skill_of_the_philips: 1
+  time_spent_at_the_braun: 1
+  visibility_of_the_braun: 1
+  stock_availability_of_the_braun: 1
+  promoter_of_braun: 1
+  rate_the_presentability_of_braun: 1
+  rate_the_communication_skill_of_the_braun: 1
+  user_id: 1
+
+two:
+  outlet_type_id: MyString
+  time_spent_at_the_philips: 1
+  visibility_of_philips: 1
+  stock_availability_of_philips: 1
+  promoter_of_philips: 1
+  rate_the_presentability_of_the_philips: 1
+  rate_the_communication_skill_of_the_philips: 1
+  time_spent_at_the_braun: 1
+  visibility_of_the_braun: 1
+  stock_availability_of_the_braun: 1
+  promoter_of_braun: 1
+  rate_the_presentability_of_braun: 1
+  rate_the_communication_skill_of_the_braun: 1
+  user_id: 1
