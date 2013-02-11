@@ -80,6 +80,8 @@ Download:
   </tbody>
 </table>
 
+<% unless is_admin? %>
 <%= link_to t('.new', :default => t("helpers.links.new")),
             new_survey_path,
             :class => 'btn btn-primary' %>
+<% end %>
