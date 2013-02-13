@@ -11,25 +11,23 @@ class Survey < ActiveRecord::Base
   belongs_to :visibility_type
 
 
-  #validates :user_id, :presence => {:message => "Listing status must not be left blank"}
   validates :outlet_type_id, :presence => {:message => "Name of the outlet must not be left blank"}
-  validates :promoter_of_braun, :presence => {:message => "Promoter of Braun is available at the promotion must not be left blank"}
-  validates :promoter_of_philips, :presence => {:message => "Promoter of Philips is available at the promotion stand must not be left blank"}
-  validates :rate_the_communication_skill_of_the_braun, :presence => {:message => "Rate the communication skill of the Braun promoter in the promotion must not be left blank"}
-  validates :rate_the_communication_skill_of_the_philips, :presence => {:message => "Rate the communication skill of the Philips promoter in the promotion must not be left blank"}
-  validates :rate_the_presentability_of_braun, :presence => {:message => "Rate the presentability of Braun promoter in the promotion must not be left blank"}
-  validates :rate_the_presentability_of_the_philips, :presence => {:message => "Rate the presentability of the Philips promoter in the promotion must not be left blank"}
-  validates :stock_availability_of_philips, :presence => {:message => "Stock availability of Philips in the promotion is must not be left blank"}
-  validates :stock_availability_of_the_braun, :presence => {:message => "Stock availability of the Braun in the promotion must not be left blank"}
-  
-  #validates :time_spent_at_the_braun, :presence => {:message => "Time spent at the Braun promotion stand must not be left blank"}
-  validates :time_spent_at_the_braun, :numericality => {:message => "Time spent at the Braun promotion stand must be in minutes"}
 
-  #validates :time_spent_at_the_philips, :presence => {:message => "Time spent at the Philips promotion in the outlet must not be left blank"}
-  validates :time_spent_at_the_philips, :numericality => {:message => "Time spent at the Philips promotion in the outlet must be in minutes"}
-
+  validates :time_spent_at_the_philips, :numericality => {:message => "Time spent at the Philips promotion in the outlet must be in minutes", :only_integer => true}
   validates :visibility_of_philips, :presence => {:message => "Visibility of Philips Promotion in the outlet must not be left blank"}
-  validates :visibility_of_the_braun, :presence => {:message => "Visibility of the Braun promotion in the outlet must not be left blank"}
+  validates :stock_availability_of_philips, :presence => {:message => "Stock availability of Philips in the promotion is must not be left blank"}
+  validates :promoter_of_philips, :presence => {:message => "Promoter of Philips is available at the promotion stand must not be left blank"}
+  validates :rate_the_presentability_of_the_philips, :presence => {:message => "Rate the presentability of the Philips promoter in the promotion must not be left blank"}
+  validates :rate_the_communication_skill_of_the_philips, :presence => {:message => "Rate the communication skill of the Philips promoter in the promotion must not be left blank"}
+
+
+
+  validates :time_spent_at_the_braun, :numericality => {:message => "Time spent at the Braun promotion stand must be in minutes", :only_integer => true}
+  validates :visibility_of_the_braun, :presence => {:message => "Visibility of the Braun Promotion in the outlet must not be left blank"}
+  validates :stock_availability_of_the_braun, :presence => {:message => "Stock availability of the Braun in the promotion must not be left blank"}
+  validates :promoter_of_braun, :presence => {:message => "Promoter of Braun is available at the promotion must not be left blank"}
+  validates :rate_the_presentability_of_braun, :presence => {:message => "Rate the presentability of Braun promoter in the promotion must not be left blank"}
+  validates :rate_the_communication_skill_of_the_braun, :presence => {:message => "Rate the communication skill of the Braun promoter in the promotion must not be left blank"}
 
 
 
