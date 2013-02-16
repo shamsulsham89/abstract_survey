@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   :port  => 587,
   :domain  => 'http://fathomless-earth-2350.herokuapp.com',
   :user_name => "abstractsurvey@gmail.com.",
-  :password => "abstract123#",
+  :password => "",
   :authentication => 'plain',
   :enable_starttls_auto => true
 }
