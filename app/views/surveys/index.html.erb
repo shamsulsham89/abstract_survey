@@ -65,7 +65,7 @@ Download:
 
         <td><%= survey.user.full_name_by_id(survey.user_id) %></td>
 
-        <td><%= survey.created_at %></td>
+        <td><%= survey.created_at.strftime('%d/%m/%Y') %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_survey_path(survey), :class => 'btn btn-mini' %>
