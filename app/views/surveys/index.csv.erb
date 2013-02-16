@@ -2,6 +2,6 @@ Name of the outlet,Time spent at the Philips promotion in the outlet (in minutes
 
 <% @surveys.each do |survey| %>
 
-  <%= survey.outlet_type.name %>,<%= survey.time_spent_at_the_philips %>,<%= survey.visibility_of_philips %>,<%= survey.stock_availability_of_philips %>,<% if  survey.promoter_of_philips == '1'%> Yes <% else %> No <% end %>,<%= survey.rate_the_presentability_of_the_philips %>,<%= survey.rate_the_communication_skill_of_the_philips %>,<%= survey.time_spent_at_the_braun %>,<%= survey.visibility_of_the_braun %>,<%= survey.stock_availability_of_the_braun %>,<% if  survey.promoter_of_braun == '1' %> Yes <% else %> No <% end %>,<%= survey.rate_the_presentability_of_braun %>,<%= survey.rate_the_communication_skill_of_the_braun %>,<%= survey.created_at %>
+  <%= survey.outlet_type.name %>,<%= survey.time_spent_at_the_philips %>,<%= survey.visibility_of_philips %>,<%= survey.stock_availability_of_philips %>,<% if  survey.promoter_of_philips == '1'%> Yes <% else %> No <% end %>,<%= survey.rate_the_presentability_of_the_philips %>,<%= survey.rate_the_communication_skill_of_the_philips %>,<%= survey.time_spent_at_the_braun %>,<%= survey.visibility_of_the_braun %>,<%= survey.stock_availability_of_the_braun %>,<% if  survey.promoter_of_braun == '1' %> Yes <% else %> No <% end %>,<%= survey.rate_the_presentability_of_braun %>,<%= survey.rate_the_communication_skill_of_the_braun %>,<%= survey.created_at.strftime('%d/%m/%Y') %>
 
 <% end %>
