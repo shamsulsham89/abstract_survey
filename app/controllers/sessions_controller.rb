@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = user.auth_token
       end
       if is_admin?
-        redirect_to user, :notice => "Welcome to the Abstract survey administration website"
+        redirect_to surveys_path, :notice => "Welcome to the Abstract survey administration website"
       else
         redirect_to new_survey_path, :notice => "Welcome #{current_user.full_name} to the survey website"
       end
