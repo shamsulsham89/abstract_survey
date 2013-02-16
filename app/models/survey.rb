@@ -50,9 +50,9 @@ class Survey < ActiveRecord::Base
   end
 
   
-  scope :created_date, lambda {
+  def created_date
     self.created_at.strftime('%d-%m-%Y')  
-  }
+  end
   
 
 end
