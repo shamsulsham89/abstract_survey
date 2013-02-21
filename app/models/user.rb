@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
 
   validates :password, :presence => true, :on => :create
-  validates_size_of :password, :within => 6..15
+  validates_size_of :password, :within => 6..15, :on => :create
   before_create { generate_token(:auth_token) }
 
   validates :account_type_id, :presence => {:message => " must not be left blank"}
