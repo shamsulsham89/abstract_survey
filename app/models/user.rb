@@ -10,18 +10,17 @@ class User < ActiveRecord::Base
   validates :first_name, :presence => true
   validates :last_name, :presence => true
 
-  validates :password, :presence => true, :on => :create
-  validates_size_of :password, :within => 6..15, :on => :create
-  before_create { generate_token(:auth_token) }
+  validates :username, :presence => true, :uniqueness => true
+  validates_size_of :username, :within => 6..15
 
   validates :email, :presence => true, :uniqueness => true
   validates :email, :format => { :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i }
-  #validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
-  #validates_uniqueness_of :email
 
-  validates :username, :presence => true, :uniqueness => true
-#  validates :username, :presence => true
-#  validates_uniqueness_of :username
+  validates :password, :presence => true, :on => :create
+  validates_size_of :password, :within => 6..15
+  before_create { generate_token(:auth_token) }
+
+  validates :account_type_id, :presence => {:message => " must not be left blank"}
 
 
 
