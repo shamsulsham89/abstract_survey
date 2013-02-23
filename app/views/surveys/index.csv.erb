@@ -1,7 +1,0 @@
-Name of the outlet,Time spent at the Philips promotion in the outlet (in minutes),Visibility of Philips Promotion in the outlet is,Stock availability of Philips in the promotion is,Promoter of Philips is available at the promotion stand,Rate the presentability of the Philips promoter in the promotion,Rate the communication skill of the Philips promoter in the promotion,Time spent at the Braun promotion stand (in minutes),Visibility of the Braun promotion in the outlet is,Stock availability of the Braun in the promotion,Promoter of Braun is available at the promotion,Rate the presentability of Braun promoter in the promotion,Rate the communication skill of the Braun promoter in the promotion,Created at
-
-<% @surveys.each do |survey| %>
-
-  <%= survey.outlet_type.name %>,<%= survey.time_spent_at_the_philips %>,<%= survey.visibility_of_philips %>,<%= survey.stock_availability_of_philips %>,<% if  survey.promoter_of_philips == '1'%> Yes <% else %> No <% end %>,<%= survey.rate_the_presentability_of_the_philips %>,<%= survey.rate_the_communication_skill_of_the_philips %>,<%= survey.time_spent_at_the_braun %>,<%= survey.visibility_of_the_braun %>,<%= survey.stock_availability_of_the_braun %>,<% if  survey.promoter_of_braun == '1' %> Yes <% else %> No <% end %>,<%= survey.rate_the_presentability_of_braun %>,<%= survey.rate_the_communication_skill_of_the_braun %>,<%= survey.created_at.strftime('%d-%m-%Y') %>
-
-<% end %>
