@@ -1,0 +1,87 @@
+<%- model_class = Survey -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+
+Download:
+<%= link_to t('.CSV', :default => t("helpers.links.CSV")),
+            surveys_path(format: "csv"),
+            :class => 'btn btn-primary' %>
+<%= link_to t('.Excel', :default => t("helpers.links.Excel")),
+             surveys_path(params.merge(format: 'xls')),
+            :class => 'btn btn-primary' %>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Outlet name</th>
+      <th><%= model_class.human_attribute_name(:time_spent_at_the_philips) %></th>
+      <th><%= model_class.human_attribute_name(:visibility_of_philips) %></th>
+      <th><%= model_class.human_attribute_name(:stock_availability_of_philips) %></th>
+      <th><%= model_class.human_attribute_name(:promoter_of_philips) %></th>
+      <th><%= model_class.human_attribute_name(:rate_the_presentability_of_the_philips) %></th>
+      <th><%= model_class.human_attribute_name(:rate_the_communication_skill_of_the_philips) %></th>
+      <th><%= model_class.human_attribute_name(:time_spent_at_the_braun) %></th>
+      <th><%= model_class.human_attribute_name(:visibility_of_the_braun) %></th>
+      <th><%= model_class.human_attribute_name(:stock_availability_of_the_braun) %></th>
+      <th><%= model_class.human_attribute_name(:promoter_of_braun) %></th>
+      <th><%= model_class.human_attribute_name(:rate_the_presentability_of_braun) %></th>
+      <th><%= model_class.human_attribute_name(:rate_the_communication_skill_of_the_braun) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @surveys.each do |survey| %>
+      <tr>
+        <td><%= survey.outlet_type.name %></td>
+        <td><%= survey.time_spent_at_the_philips %></td>
+        <td><%= survey.visibility_of_philips %></td>
+        <td><%= survey.stock_availability_of_philips %></td>
+
+        <% if  survey.promoter_of_philips == '1' %>
+          <td>Yes</td>
+          <% else %>
+          <td>No</td>
+          <% end %>
+
+        <td><%= survey.rate_the_presentability_of_the_philips %></td>
+        <td><%= survey.rate_the_communication_skill_of_the_philips %></td>
+        <td><%= survey.time_spent_at_the_braun %></td>
+        <td><%= survey.visibility_of_the_braun %></td>
+        <td><%= survey.stock_availability_of_the_braun %></td>
+
+        <% if  survey.promoter_of_braun == '1' %>
+          <td>Yes</td>
+          <% else %>
+          <td>No</td>
+          <% end %>
+
+        <td><%= survey.rate_the_presentability_of_braun %></td>
+        <td><%= survey.rate_the_communication_skill_of_the_braun %></td>
+
+
+        <td><%= survey.user.full_name_by_id(survey.user_id) %></td>
+
+        <td><%= survey.created_at.strftime('%d/%m/%Y') %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_survey_path(survey), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      survey_path(survey),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% unless is_admin? %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_survey_path,
+            :class => 'btn btn-primary' %>
+<% end %>
